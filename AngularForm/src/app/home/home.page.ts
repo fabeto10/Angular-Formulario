@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { DatosService } from '../../app/datos.service'
@@ -8,17 +9,23 @@ import { DatosService } from '../../app/datos.service'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public nombre: string = 'Jose Perez'
+  public response = {};
+  public nombre: string = 'Francisco Vidal'
+  registerPost: any = {};
   datos: any = {};
-  postData: [];
-  constructor(private datosService: DatosService, private cd: ChangeDetectorRef ) { }
-  ngOnInit(){
-    // this.http.post<any>('https://alternos.sgc-consultores.com.ve/pruebatour/registro', {title: 'Request'}).subscribe(data => {
-      //   this.postData = data.id
-      // })
+  constructor(private postService: DatosService, private datosService: DatosService, private cd: ChangeDetectorRef ) { }
+  ngOnInit(): void {
     this.viewDesarrollador();
+    this.registrarDesarrollador();
   }
 
+  public registrarDesarrollador(): void {
+    this.postService.postDesarrollador(this.nombre).subscribe(data => {
+      this.cd.detectChanges();
+      this.response = data;
+      console.log(data);
+    })
+  }
   public viewDesarrollador(){
     this.datosService.getDesarrollador(this.nombre).subscribe(data => {
       this.cd.detectChanges();

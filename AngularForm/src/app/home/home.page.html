@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Busca y registra
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -21,16 +21,28 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <button ion-button
+      <button style="height: 2rem;" ion-button
         (click)="viewDesarrollador()">
-        Get Developer
+        Buscar Desarrollador
+      </button>
+    </ion-col>
+    <ion-col>
+      <button style="height: 2rem;" ion-button
+        (click)="viewDesarrollador()">
+        Registrar Desarrollador
       </button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <ng-container *ngIf="datos && datos.nombre">
-        {{datos.nombre}}
+        <ul>
+          <li *ngIf="datos.exito.length > 0">Hubo exito ?: {{datos.exito}}</li>
+          <li *ngIf="datos.nombre.length > 0">Nombre: {{datos.nombre}}</li>
+          <li *ngIf="datos.nombrearchivo.length > 0">Nombre del archivo: {{datos.nombrearchivo}}</li>
+          <li *ngIf="datos.ruta.length > 0">Nombre de la ruta: {{datos.ruta}}</li>
+          <li *ngIf="datos.mensaje.length > 0 ">{{datos.mensaje}}</li>
+        </ul>
       </ng-container>
     </ion-col>
   </ion-row>
