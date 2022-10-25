@@ -35,18 +35,21 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <ng-container *ngIf="datos && datos.nombre">
+      <ng-container *ngIf="condicional && datos.mensaje != '' && registerPost.exito == 'SI' && registerPost.mensaje == 'Éxito'">
         <ul>
-          <li></li>
+          <h1>Registro exitoso</h1>
+          <h2>Exito: {{registerPost.exito}}</h2>
+          <h2>Mensaje: {{registerPost.mensaje}}</h2>
+          <img src="https://static9.depositphotos.com/1625039/1128/i/450/depositphotos_11287172-stock-photo-big-eyes.jpg"/>
         </ul>
       </ng-container>
-      <ng-container *ngIf="datos && datos.nombre">
+      <ng-container *ngIf="datos && datos.nombre && !condicional">
         <ul>
-          <li *ngIf="datos.exito.length > 0">Hubo exito ?: {{datos.exito}}</li>
-          <li *ngIf="datos.nombre.length > 0">Nombre: {{datos.nombre}}</li>
-          <li *ngIf="datos.nombrearchivo.length > 0">Nombre del archivo: {{datos.nombrearchivo}}</li>
-          <li *ngIf="datos.ruta.length > 0">Nombre de la ruta: {{datos.ruta}}</li>
-          <li *ngIf="datos.mensaje.length > 0 ">{{datos.mensaje}}</li>
+          <li >Exito: {{datos.exito}}</li>
+          <li >Nombre: {{datos.nombre}}</li>
+          <li >Nombre del archivo: {{datos.nombrearchivo}}</li>
+          <li >Nombre de la ruta: {{datos.ruta}}</li>
+          <li >{{datos.mensaje}}</li>
         </ul>
       </ng-container>
     </ion-col>

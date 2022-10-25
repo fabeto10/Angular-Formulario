@@ -13,15 +13,19 @@ export class HomePage {
   public nombre: string = 'Francisco Vidal'
   registerPost: any = {};
   datos: any = {};
+  perrito: any = {};
+  condicional: any = true;
   constructor(private postService: DatosService, private datosService: DatosService, private cd: ChangeDetectorRef ) { }
   ngOnInit(): void {
-    this.viewDesarrollador();
-    this.registrarDesarrollador();
+    // this.viewDesarrollador();
+    // this.registrarDesarrollador();
   }
 
   public registrarDesarrollador(): void {
     this.postService.postDesarrollador(this.nombre).subscribe(data => {
       this.registerPost = data;
+      // this.viewDesarrollador();
+      this.condicional = true;
       console.log(this.registerPost);
     })
   }
@@ -29,6 +33,7 @@ export class HomePage {
     this.datosService.getDesarrollador(this.nombre).subscribe(data => {
       this.cd.detectChanges();
       this.datos = data;
+      this.condicional = false;
       console.log(this.datos);
       console.log(this.nombre);
     })

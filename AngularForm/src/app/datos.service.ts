@@ -16,10 +16,10 @@ export class DatosService {
   postDesarrollador(nombre){
     let body = {
       nombre: nombre,
-      nombrearchivo: "prueba.txt",
+      nombrearchivo: "https://static9.depositphotos.com/1625039/1128/i/450/depositphotos_11287172-stock-photo-big-eyes.jpg",
       ruta: "./archivo/"
     };
     let options = { headers: this.headers };
-    return this.http.post<any>('https://reqres.in/api/posts', body, options);
+    return this.http.post<any>('https://alternos.sgc-consultores.com.ve/pruebatour/registro', body, options);
   }
 }
