@@ -7,14 +7,40 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input
+          type="name"
+          required
+          name="clave"
+          ngModel ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button
+        (click)="viewDesarrollador()">
+        Get Developer
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item *ngIf="datos && datos.exito == 'SI'">
+        {{datos.nombre}}
+      </ion-item>
+      <ion-item *ngIf="datos && datos.exito == 'SI'">
+        {{datos.nombrearchivo}}
+      </ion-item>
+      <ion-item *ngIf="datos && datos.exito == 'SI'">
+        {{datos.ruta}}
+      </ion-item>
+      <ion-item *ngIf="datos && datos.exito == 'SI'">
+        {{datos.mensaje}}
+      </ion-item>
+    </ion-col>
+  </ion-row>
 </ion-content>
