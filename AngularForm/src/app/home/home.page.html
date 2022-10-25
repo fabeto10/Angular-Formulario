@@ -15,7 +15,7 @@
           type="name"
           required
           name="clave"
-          ngModel ></ion-input>
+          [(ngModel)]="nombre"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -29,18 +29,9 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-item *ngIf="datos && datos.exito == 'SI'">
+      <ng-container *ngIf="datos && datos.nombre">
         {{datos.nombre}}
-      </ion-item>
-      <ion-item *ngIf="datos && datos.exito == 'SI'">
-        {{datos.nombrearchivo}}
-      </ion-item>
-      <ion-item *ngIf="datos && datos.exito == 'SI'">
-        {{datos.ruta}}
-      </ion-item>
-      <ion-item *ngIf="datos && datos.exito == 'SI'">
-        {{datos.mensaje}}
-      </ion-item>
+      </ng-container>
     </ion-col>
   </ion-row>
 </ion-content>
