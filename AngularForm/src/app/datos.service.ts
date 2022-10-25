@@ -9,17 +9,17 @@ export class DatosService {
   public headers = new HttpHeaders({
     'Content-Type': 'application/json'
   });
-  public options = { headers: this.headers };
-  public body: {
-    nombre: '',
-    nombrearchivo: "prueba.txt",
-    ruta: "./archivo/"
-  };
   constructor(private http: HttpClient ) {}
   getDesarrollador(nombre){
     return this.http.get<any>('https://alternos.sgc-consultores.com.ve/pruebatour/consulta?nombre='+ nombre)
   }
-  postDesarrollador(body){
-    return this.http.post<any>('https://reqres.in/api/posts', this.body, this.options)
+  postDesarrollador(nombre){
+    let body = {
+      nombre: nombre,
+      nombrearchivo: "prueba.txt",
+      ruta: "./archivo/"
+    };
+    let options = { headers: this.headers };
+    return this.http.post<any>('https://reqres.in/api/posts', body, options);
   }
 }

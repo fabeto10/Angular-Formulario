@@ -21,9 +21,8 @@ export class HomePage {
 
   public registrarDesarrollador(): void {
     this.postService.postDesarrollador(this.nombre).subscribe(data => {
-      this.cd.detectChanges();
-      this.response = data;
-      console.log(data);
+      this.registerPost = data;
+      console.log(this.registerPost);
     })
   }
   public viewDesarrollador(){
@@ -31,7 +30,7 @@ export class HomePage {
       this.cd.detectChanges();
       this.datos = data;
       console.log(this.datos);
-      console.log(this.nombre)
+      console.log(this.nombre);
     })
   }
 }

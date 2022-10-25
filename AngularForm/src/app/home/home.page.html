@@ -28,13 +28,18 @@
     </ion-col>
     <ion-col>
       <button style="height: 2rem;" ion-button
-        (click)="viewDesarrollador()">
+        (click)="registrarDesarrollador()">
         Registrar Desarrollador
       </button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
+      <ng-container *ngIf="datos && datos.nombre">
+        <ul>
+          <li></li>
+        </ul>
+      </ng-container>
       <ng-container *ngIf="datos && datos.nombre">
         <ul>
           <li *ngIf="datos.exito.length > 0">Hubo exito ?: {{datos.exito}}</li>
